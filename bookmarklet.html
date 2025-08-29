@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Affirm Payment Bookmarklet</title>
+</head>
+<body>
+    <h1>Affirm Payment Bookmarklet</h1>
+    <p>Drag this link to your bookmarks bar:</p>
+    
+    <a href="javascript:(function(){const urlParams=new URLSearchParams(window.location.search);const invoiceId=urlParams.get('invoiceId');if(!invoiceId){alert('No invoice ID found');return;}const affirmDiv=document.createElement('div');affirmDiv.innerHTML=`<div style='margin:20px 0;padding:20px;border:2px solid %23007cba;border-radius:8px;background:%23f8f9fa;'><h3 style='margin:0 0 10px 0;color:%23007cba;'>Pay with Affirm</h3><p style='margin:0 0 15px 0;font-size:14px;'>Buy now, pay over time with flexible monthly payments</p><button onclick='window.open(\"https://main.d1pu69wxa8lwvk.amplifyapp.com/invoice-payment.html?invoiceId=${invoiceId}\",\"_blank\")' style='background:%23007cba;color:white;padding:12px 24px;border:none;border-radius:4px;cursor:pointer;font-size:16px;'>Pay with Affirm</button></div>`;const targetElement=document.querySelector('form')||document.querySelector('.payment')||document.querySelector('body');targetElement.appendChild(affirmDiv);})();">Add Affirm Payment</a>
+    
+    <h2>Instructions:</h2>
+    <ol>
+        <li>Drag the "Add Affirm Payment" link above to your bookmarks bar</li>
+        <li>Go to any Salesforce invoice page</li>
+        <li>Click the bookmarklet to add the Affirm payment button</li>
+    </ol>
+</body>
+</html>

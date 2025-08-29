@@ -1,0 +1,19 @@
+<!-- Add this to your Salesforce email template -->
+<div style="margin: 20px 0; padding: 20px; border: 2px solid #007cba; border-radius: 8px; background: #f8f9fa; text-align: center;">
+    <h3 style="margin: 0 0 10px 0; color: #007cba;">Alternative Payment Option</h3>
+    <p style="margin: 0 0 15px 0; font-size: 14px;">Can't pay the full amount now? Use Affirm to pay over time with flexible monthly payments.</p>
+    <a href="https://main.d1pu69wxa8lwvk.amplifyapp.com/invoice-payment.html?invoiceId={!fw1__Invoice__c.Id}" 
+       style="display: inline-block; background: #007cba; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-size: 16px;">
+        Pay with Affirm
+    </a>
+</div>
+
+<!-- Or for standard Invoice object -->
+<div style="margin: 20px 0; padding: 20px; border: 2px solid #007cba; border-radius: 8px; background: #f8f9fa; text-align: center;">
+    <h3 style="margin: 0 0 10px 0; color: #007cba;">Alternative Payment Option</h3>
+    <p style="margin: 0 0 15px 0; font-size: 14px;">Can't pay the full amount now? Use Affirm to pay over time with flexible monthly payments.</p>
+    <a href="https://main.d1pu69wxa8lwvk.amplifyapp.com/invoice-payment.html?invoiceId={!Invoice.Id}" 
+       style="display: inline-block; background: #007cba; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-size: 16px;">
+        Pay with Affirm
+    </a>
+</div>

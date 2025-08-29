@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Affirm Payment Button</title>
+    <style>
+        body { margin: 0; padding: 15px; font-family: Arial, sans-serif; background: #f8f9fa; }
+        .affirm-button { 
+            background: #007cba; 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            font-size: 16px;
+            width: 100%;
+        }
+        .affirm-button:hover { background: #005a87; }
+        .affirm-text { margin: 0 0 10px 0; font-size: 14px; color: #333; }
+    </style>
+</head>
+<body>
+    <p class="affirm-text">Pay over time with flexible monthly payments</p>
+    <button class="affirm-button" onclick="openAffirmPayment()">Pay with Affirm</button>
+    
+    <script>
+    function openAffirmPayment() {
+        // Get invoice ID from parent window URL
+        try {
+            const parentUrl = window.parent.location.href;
+            const urlParams = new URLSearchParams(parentUrl.split('?')[1]);
+            const invoiceId = urlParams.get('invoiceId');
+            
+            if (invoiceId) {
+                window.open('https://main.d1pu69wxa8lwvk.amplifyapp.com/invoice-payment.html?invoiceId=' + invoiceId, '_blank');
+            } else {
+                alert('Invoice ID not found');
+            }
+        } catch (e) {
+            // Fallback if cross-origin restrictions
+            window.open('https://main.d1pu69wxa8lwvk.amplifyapp.com/affirm-checkout.html', '_blank');
+        }
+    }
+    </script>
+</body>
+</html>
