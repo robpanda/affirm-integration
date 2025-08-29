@@ -8,6 +8,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('.'));
 
+// Root route for health check
+app.get('/', (req, res) => {
+  res.json({ status: 'Affirm Payment Server Running', endpoints: ['/create-payment-intent', '/capture-payment'] });
+});
+
 app.post('/create-payment-intent', async (req, res) => {
   try {
     const { amount = 3500, currency = 'usd' } = req.body || {};
