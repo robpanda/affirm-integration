@@ -17,7 +17,7 @@
         let affirmElement;
 
         async function initialize() {
-            const response = await fetch('https://YOUR_RENDER_URL_HERE/create-payment-intent', {
+            const response = await fetch('https://YOUR_APPRUNNER_URL_HERE/create-payment-intent', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
@@ -48,7 +48,7 @@
                 console.error('Payment failed:', error);
             } else if (paymentIntent && paymentIntent.status === 'requires_capture') {
                 // Auto-capture the payment
-                await fetch('https://YOUR_RENDER_URL_HERE/capture-payment', {
+                await fetch('https://YOUR_APPRUNNER_URL_HERE/capture-payment', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ payment_intent_id: paymentIntent.id })
