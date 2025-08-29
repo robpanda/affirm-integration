@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: affirm-server
+    env: node
+    buildCommand: npm install
+    startCommand: node affirm-server.js
+    envVars:
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_PUBLISHABLE_KEY
+        sync: false
