@@ -11,13 +11,13 @@
     </form>
 
     <script>
-        const stripe = Stripe('pk_live_YOUR_NEW_KEY_HERE');
+        const stripe = Stripe('pk_live_51P9Ull1EZLiysIlxLkg4tRxLgxxpD4Snm2xjJKgDS1C8gjPkKTU1wca2dNNUbVJ8Fn2MUR8Z55iNGGBqoSUh1fdu00mp1EMuWv');
         
         let elements;
         let affirmElement;
 
         async function initialize() {
-            const response = await fetch('https://YOUR_APPRUNNER_URL_HERE/create-payment-intent', {
+            const response = await fetch('https://affirm-integration.onrender.com/create-payment-intent', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
@@ -48,7 +48,7 @@
                 console.error('Payment failed:', error);
             } else if (paymentIntent && paymentIntent.status === 'requires_capture') {
                 // Auto-capture the payment
-                await fetch('https://YOUR_APPRUNNER_URL_HERE/capture-payment', {
+                await fetch('https://affirm-integration.onrender.com/capture-payment', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ payment_intent_id: paymentIntent.id })
